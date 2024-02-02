@@ -257,6 +257,7 @@ section {
 
 .about .row .content .icons-container .icons img {
     height: 20rem;
+    border-radius: 30px;
 }
 
 .about .row .content .icons-container .icons h3 {
