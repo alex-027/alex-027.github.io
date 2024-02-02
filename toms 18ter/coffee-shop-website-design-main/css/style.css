@@ -268,11 +268,7 @@ section {
 
 /* MENU */
 
-.menu {
-    background: url(../image/menu-bg.jpg) no-repeat;
-    background-position: center;
-    background-size: cover;
-}
+
 
 .menu .box-container {
     display: flex;
@@ -322,6 +318,12 @@ section {
 }
 
 /* REVIEW */
+
+.review{
+    background: url(../image/review-bg.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 
 .review .review-slider {
     padding: 7rem 0;
