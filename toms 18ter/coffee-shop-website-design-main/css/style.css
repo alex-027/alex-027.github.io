@@ -563,4 +563,13 @@ section {
         height: auto;
         width: 100%;
     }
+
+    .review .review-slider .box img {
+        width: 20rem;
+    }
+    
+    .review .review-slider .box .kleines_bild{
+        width: 33rem;
+    }
+    
 }
