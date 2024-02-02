@@ -336,45 +336,18 @@ section {
     padding: 2rem;
 }
 
-.review .review-slider .box .fa-quote-left {
-    position: absolute;
-    top: 2rem;
-    left: 2.5rem;
-    font-size: 6rem;
-    color: #ccc;
-    z-index: -1;
-}
-
-.review .review-slider .box .fa-quote-right {
-    position: absolute;
-    bottom: 2rem;
-    right: 2.5rem;
-    font-size: 6rem;
-    color: #ccc;
-    z-index: -1;
-}
-
-.review .review-slider .box:hover .fa-quote-left {
-    top: -6.5rem;
-}
-
-.review .review-slider .box:hover .fa-quote-right {
-    bottom: -6.5rem;
-}
-
 .review .review-slider .box img {
     width: 40rem;
     border-radius: 30%;
     margin-bottom: .7rem;
 }
 
-.review .review-slider .box .stars {
-    padding: .5rem 0
+.review .review-slider .box .kleines_bild{
+    width: 53rem;
 }
 
-.review .review-slider .box .stars i {
-    font-size: 1.7rem;
-    color: var(--main-color);
+#mit_nawa{
+    width: 22rem;
 }
 
 .review .review-slider .box p {
