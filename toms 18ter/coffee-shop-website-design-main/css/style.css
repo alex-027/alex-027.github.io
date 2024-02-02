@@ -565,11 +565,15 @@ section {
     }
 
     .review .review-slider .box img {
-        width: 20rem;
+        width: 25rem;
     }
     
     .review .review-slider .box .kleines_bild{
-        width: 33rem;
+        width: 38rem;
+    }
+
+    #mit_nawa{
+        width: 14,52;
     }
     
 }
