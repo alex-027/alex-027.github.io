@@ -363,9 +363,8 @@ section {
 }
 
 .review .review-slider .box img {
-    height: 7rem;
-    width: 7rem;
-    border-radius: 50%;
+    width: 40rem;
+    border-radius: 30%;
     margin-bottom: .7rem;
 }
 
