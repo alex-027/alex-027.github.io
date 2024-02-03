@@ -347,13 +347,19 @@ section {
     margin-bottom: .7rem;
 }
 
-.review .review-slider .box .kleines_bild{
-    width: 53rem;
-}
-
 #mit_nawa{
     width: 22rem;
 }
+
+#trymacs{
+    width: 17rem;
+}
+
+#gang{
+    width: 19rem;
+}
+
+
 
 .review .review-slider .box p {
     font-size: 1.6rem;
@@ -579,5 +585,16 @@ section {
 
     #mit_nawa{
         width: 14rem !important;
+
     }
+
+    #trymacs{
+        width: 10rem;
+    }
+        
+    #gang{
+        width: 12.1rem;
+    }
+        
+    
 }
