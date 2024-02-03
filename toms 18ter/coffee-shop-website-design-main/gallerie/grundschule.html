@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallerie Grundschule</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <link rel="stylesheet" href="/toms 18ter/coffee-shop-website-design-main/gallerie/css/style.css">
+</head>
+<body>
+  <div id="gb">
+    <header>
+      <!--
+      <div id="logo-img">
+        <img src="/gallery/image1.jpg" id="img"/>
+      </div>
+
+      -->
+      <div id="logo-text">
+        <h1>grundschule</h1>
+      </div>
+      <div>
+      </div>
+    </header>
+    <section id="main">
+      <div id="gallery">
+        <div id="gallery-photos">
+          <!-- by JS -->
+          <div class="image"> <img src="/toms 18ter/coffee-shop-website-design-main/image/grundschule/Grundschule.jpg" alt=""/></div>
+          <div class="image"> <img src="/toms 18ter/coffee-shop-website-design-main/image/grundschule/klassenfoto.jpg" alt=""/></div>
+          <div class="image"> <img src="/toms 18ter/coffee-shop-website-design-main/image/grundschule/mit_kay.jpg" alt=""/></div>
+          <div class="image"> <img src="/toms 18ter/coffee-shop-website-design-main/image/grundschule/mit_pate.jpg" alt=""/></div>
+          <div class="image"> <img src="/toms 18ter/coffee-shop-website-design-main/image/grundschule/mit_pferd.jpg" alt=""/></div>
+          <div class="image"> <img src="/toms 18ter/coffee-shop-website-design-main/image/grundschule/mit_pferd_und_kay.jpg" alt=""/></div>
+          <div class="image"> <img src="/toms 18ter/coffee-shop-website-design-main/image/grundschule/mr_popcorn.jpg" alt=""/></div>
+          <div class="image"> <img src="/toms 18ter/coffee-shop-website-design-main/image/grundschule/klassenfoto2.jpg" alt=""/></div>
+          <div class="image"> <img src="/toms 18ter/coffee-shop-website-design-main/image/grundschule/mit_pate2.jpg" alt=""/></div>
+        </div>
+        <div id="image-popup">
+          <span>&times;</span>
+          <img src="https://picsum.photos/1920/1080">
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div id="about">
+        <div id="main-about">
+          <span>Created by neofetch <br> Modified by Alex</span>
+          </div>
+        </div>
+    </footer>
+  </div>
+
+  <!-- Load library from the CDN -->
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+  <script>  
+    var phrases = [
+      'galeria de Lisboa',
+      'galeria de Portugal',
+      'website da JB',
+      'website da João de Barros',
+      'website estático',
+      'uso de bibliotecas',
+      'Javascript',
+      'Futuro...'
+    ];
+
+    new Typed('#text-change', {
+      strings: phrases,
+      typeSpeed: 100,
+      backSpeed: 100,
+      backDelay: 1000,
+      loop: true
+    });
+
+    document.querySelectorAll("#gallery-photos img").forEach(image => {
+      image.onclick = () => {
+        document.querySelector("#gallery").style.overflow = "hidden";
+        document.querySelector("#image-popup").style.display = "block";
+        document.querySelector("#image-popup img").src = image.getAttribute("src");
+      }
+    });
+
+    document.querySelector("#image-popup span").onclick = () => {
+      document.querySelector("#gallery").style.overflow = "auto";
+      document.querySelector("#image-popup").style.display = "none";
+    }
+
+    document.querySelectorAll("#about-logo span").forEach((line, index) => {
+      if (index === 0 || index === 1 || index === 2 || index === 3 ) {
+        line.style.color = 'rgb(0,255,0,0.8)';
+      }
+      if (index === 4 || index === 5) {
+        line.style.color = 'rgba(250, 250, 0, 0.8)';
+      }
+      if (index === 6 || index === 7 || index === 8 || index === 9 || index === 10) {
+        line.style.color = 'rgba(255, 30, 30, 0.8)';
+      }
+      if (index === 11 || index === 12 ) {
+        line.style.color = 'rgba(255, 30, 200, 0.8)';
+      }
+      if (index === 13 || index === 14 || index === 15 || index === 16 ) {
+        line.style.color = 'rgba(150, 0, 255, 0.8)';
+      }
+    });
+    
+  </script>
+</body>
+</html>
+
+<!--
+  Name@vitrinelisboa
+  -----------------
+  OS: Artistic Expression
+  Website: vitrinelisboa.com
+  Location: Lisboa, Portugal
+  Focus: Online Art Gallery
+  Collections: Curated and Diverse
+  Mission: Promoting Art and Artists
+-->
+
