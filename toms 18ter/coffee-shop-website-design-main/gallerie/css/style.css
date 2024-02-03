@@ -251,3 +251,9 @@ footer div#about div#main-about div #about-info span b {
   src: url('font/Menlo-Regular.ttf') format('truetype');
 }
 
+@media (max-width: 450px) {
+  h1{
+    font-size: 50%;
+  }
+}
+
