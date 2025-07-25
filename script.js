@@ -118,14 +118,7 @@ class BirthdayPhotoMerger {
             const leftWidth = this.canvas.width / 2;
             this.ctx.drawImage(friendImg, 0, 0, leftWidth, this.canvas.height);
             
-            // Add a subtle border between the two sides
-            this.ctx.strokeStyle = 'rgba(225, 112, 85, 0.8)';
-            this.ctx.lineWidth = 4;
-            this.ctx.setLineDash([10, 5]);
-            this.ctx.beginPath();
-            this.ctx.moveTo(leftWidth, 0);
-            this.ctx.lineTo(leftWidth, this.canvas.height);
-            this.ctx.stroke();
+            // No border line - clean modern look
             
             // Add birthday decorations
             this.addBirthdayDecorations();
