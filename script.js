@@ -11,16 +11,15 @@ class BirthdayPhotoMerger {
         
         // Array of your photos - add your photo filenames here
         this.friendPhotoPaths = [
-            'pictures/IMG_5741-removebg-preview.png',
-            'pictures/IMG_5761-removebg-preview.png',
-            'pictures/IMG_5768-removebg-preview.png',
-            'pictures/IMG_5779-removebg-preview.png',
-            'pictures/IMG_5785-removebg-preview.png',
-            'pictures/IMG_5795-removebg-preview.png',
-            'pictures/IMG_5804-removebg-preview.png',
-            'pictures/IMG_5818-removebg-preview.png',
-            'pictures/IMG_5826-removebg-preview.png',
-            'pictures/IMG_5839-removebg-preview.png'
+            'pictures/IMG_5741-removebg-preview 2.PNG',
+            'pictures/IMG_5761-removebg-preview.jpg',
+            'pictures/IMG_5768-removebg-preview.jpg',
+            'pictures/IMG_5779-removebg-preview.jpg',
+            'pictures/IMG_5785-removebg-preview.jpg',
+            'pictures/IMG_5795-removebg-preview.jpg',
+            'pictures/IMG_5818-removebg-preview.jpg',
+            'pictures/IMG_5826-removebg-preview.jpg',
+            'pictures/IMG_5839-removebg-preview.jpg'
         ];
         this.currentPhotoIndex = 0;
         
