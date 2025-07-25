@@ -173,20 +173,8 @@ class BirthdayPhotoMerger {
         ctx.strokeText(text, x, y);
         ctx.fillText(text, x, y);
         
-        // Add birthday emojis
-        ctx.font = '60px Arial';
-        ctx.fillText('🎂', x - 200, y + 80);
-        ctx.fillText('🎈', x + 200, y + 80);
-        ctx.fillText('🎉', x - 100, this.canvas.height - 80);
-        ctx.fillText('✨', x + 100, this.canvas.height - 80);
-        
-        // Add age number
-        ctx.font = 'bold 120px Georgia';
-        ctx.fillStyle = 'rgba(196, 164, 132, 0.7)';
-        ctx.strokeStyle = 'white';
-        ctx.lineWidth = 4;
-        ctx.fillText('19', x, this.canvas.height - 150);
-        ctx.strokeText('19', x, this.canvas.height - 150);
+
+
         
         ctx.restore();
     }
