@@ -6,6 +6,7 @@ class BirthdayPhotoMerger {
         this.startCameraBtn = document.getElementById('startCamera');
         this.captureBtn = document.getElementById('capturePhoto');
         this.downloadBtn = document.getElementById('downloadPhoto');
+        this.stopCameraBtn = document.getElementById('stopCamera');
         this.friendPhoto = document.getElementById('friendPhoto');
         
         // Array of your photos - add your photo filenames here
@@ -33,6 +34,7 @@ class BirthdayPhotoMerger {
         this.startCameraBtn.addEventListener('click', () => this.startCamera());
         this.captureBtn.addEventListener('click', () => this.capturePhoto());
         this.downloadBtn.addEventListener('click', () => this.downloadPhoto());
+        this.stopCameraBtn.addEventListener('click', () => this.stopCamera());
         
         // Set initial photo
         this.setRandomPhoto();
@@ -63,6 +65,7 @@ class BirthdayPhotoMerger {
             
             this.startCameraBtn.style.display = 'none';
             this.captureBtn.style.display = 'inline-block';
+            this.stopCameraBtn.style.display = 'inline-block';
             
             // Add camera ready animation
             this.showNotification('📸 Camera ready! Position yourself on the right side!', 'success');
@@ -71,6 +74,27 @@ class BirthdayPhotoMerger {
             console.error('Error accessing camera:', error);
             this.showNotification('❌ Could not access camera. Please check permissions.', 'error');
         }
+    }
+    
+    stopCamera() {
+        if (this.stream) {
+            // Stop all video tracks
+            this.stream.getTracks().forEach(track => {
+                track.stop();
+            });
+            this.stream = null;
+        }
+        
+        // Clear video source
+        this.video.srcObject = null;
+        
+        // Reset button visibility
+        this.startCameraBtn.style.display = 'inline-block';
+        this.captureBtn.style.display = 'none';
+        this.stopCameraBtn.style.display = 'none';
+        this.downloadBtn.style.display = 'none';
+        
+        this.showNotification('📷 Camera stopped', 'info');
     }
     
     capturePhoto() {

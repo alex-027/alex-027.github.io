@@ -201,6 +201,11 @@ body {
     color: white;
 }
 
+.btn-warning {
+    background: linear-gradient(45deg, #d4a574, #c49a6c);
+    color: white;
+}
+
 /* Instructions */
 .instructions {
     display: flex;
