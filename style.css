@@ -300,7 +300,7 @@ body {
 }
 
 .step-content p {
-    color: var(--neutral-600);
+    color: black;
     font-size: 0.95rem;
 }
 
