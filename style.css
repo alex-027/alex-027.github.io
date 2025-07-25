@@ -168,7 +168,7 @@ body {
 
 .friend-overlay {
     position: absolute;
-    left: 0;
+    right: 0;
     top: 0;
     width: 50%;
     height: 100%;
@@ -185,6 +185,7 @@ body {
     object-fit: contain;
     border-radius: var(--radius-lg);
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    transform: scaleX(-1);
 }
 
 /* Modern Button System */

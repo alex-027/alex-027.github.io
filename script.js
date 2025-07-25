@@ -114,9 +114,22 @@ class BirthdayPhotoMerger {
         // Create friend photo overlay
         const friendImg = new Image();
         friendImg.onload = () => {
-            // Draw friend photo on the left half
-            const leftWidth = this.canvas.width / 2;
-            this.ctx.drawImage(friendImg, 0, 0, leftWidth, this.canvas.height);
+            // Draw mirrored friend photo on the right half
+            const rightWidth = this.canvas.width / 2;
+            const rightX = this.canvas.width / 2;
+            
+            // Save context state
+            this.ctx.save();
+            
+            // Move to the right half and flip horizontally
+            this.ctx.translate(rightX + rightWidth, 0);
+            this.ctx.scale(-1, 1);
+            
+            // Draw the mirrored image
+            this.ctx.drawImage(friendImg, 0, 0, rightWidth, this.canvas.height);
+            
+            // Restore context state
+            this.ctx.restore();
             
             // No border line - clean modern look
             
