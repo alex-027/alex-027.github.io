@@ -155,7 +155,7 @@ class BirthdayPhotoMerger {
         // Add birthday text overlay
         ctx.save();
         ctx.font = 'bold 48px Georgia';
-        ctx.fillStyle = 'rgba(186, 131, 143, 0.9)';
+        ctx.fillStyle = 'rgba(139, 111, 71, 0.9)';
         ctx.strokeStyle = 'white';
         ctx.lineWidth = 3;
         ctx.textAlign = 'center';
@@ -176,7 +176,7 @@ class BirthdayPhotoMerger {
         
         // Add age number
         ctx.font = 'bold 120px Georgia';
-        ctx.fillStyle = 'rgba(203, 166, 247, 0.7)';
+        ctx.fillStyle = 'rgba(196, 164, 132, 0.7)';
         ctx.strokeStyle = 'white';
         ctx.lineWidth = 4;
         ctx.fillText('19', x, this.canvas.height - 150);

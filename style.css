@@ -6,9 +6,9 @@
 
 body {
     font-family: 'Georgia', serif;
-    background: linear-gradient(135deg, #f8e8d8 0%, #e8d5d3 50%, #d4b5c4 100%);
+    background: linear-gradient(135deg, #f5f1eb 0%, #e8ddd4 50%, #d4c4b0 100%);
     min-height: 100vh;
-    color: #2d3436;
+    color: #3c2415;
     overflow-x: hidden;
 }
 
@@ -27,7 +27,7 @@ body {
 
 .birthday-title {
     font-size: 2.5rem;
-    color: #ba838f;
+    color: #8b6f47;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
     margin-bottom: 10px;
     animation: gentle-bounce 3s ease-in-out infinite;
@@ -35,7 +35,7 @@ body {
 
 .name-title {
     font-size: 3rem;
-    color: #a67c8a;
+    color: #a0845c;
     text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
     margin-bottom: 20px;
     animation: color-shift 4s ease-in-out infinite;
@@ -94,7 +94,7 @@ body {
     font-size: 1.2rem;
     line-height: 1.6;
     text-align: center;
-    color: #2d3436;
+    color: #3c2415;
 }
 
 .heart {
@@ -134,12 +134,11 @@ body {
     top: 0;
     width: 50%;
     height: 100%;
-    background: rgba(212, 181, 196, 0.3);
+    background: rgba(212, 196, 181, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-right: 3px dashed #ba838f;
 }
 
 #friendPhoto {
@@ -147,19 +146,8 @@ body {
     height: 100%;
     object-fit: contain;
     border-radius: 15px;
-    opacity: 0.7;
-    filter: sepia(20%) saturate(1.2);
-}
-
-.overlay-label {
-    position: absolute;
-    bottom: 10px;
-    background: rgba(186, 131, 143, 0.9);
-    color: white;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: bold;
+    opacity: 0.9;
+    filter: sepia(10%) saturate(1.1) brightness(1.05);
 }
 
 /* Controls */
@@ -187,22 +175,22 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(45deg, #cba6f7, #d4a574);
+    background: linear-gradient(45deg, #c4a484, #a0845c);
     color: white;
 }
 
 .btn-secondary {
-    background: linear-gradient(45deg, #b4a7d6, #9c88d4);
+    background: linear-gradient(45deg, #b8a082, #9d8660);
     color: white;
 }
 
 .btn-success {
-    background: linear-gradient(45deg, #a8cc8c, #7fb069);
+    background: linear-gradient(45deg, #a8a082, #8b8660);
     color: white;
 }
 
 .btn-warning {
-    background: linear-gradient(45deg, #d4a574, #c49a6c);
+    background: linear-gradient(45deg, #c4a484, #a68660);
     color: white;
 }
 
@@ -227,7 +215,7 @@ body {
 }
 
 .step-number {
-    background: #ba838f;
+    background: #8b6f47;
     color: white;
     width: 30px;
     height: 30px;
@@ -242,7 +230,7 @@ body {
 
 .step-text {
     font-size: 1rem;
-    color: #2d3436;
+    color: #3c2415;
 }
 
 /* Birthday Wishes */
@@ -261,7 +249,7 @@ body {
 }
 
 .wish-card h3 {
-    color: #ba838f;
+    color: #8b6f47;
     font-size: 1.8rem;
     margin-bottom: 20px;
 }
@@ -269,7 +257,7 @@ body {
 .wish-card p {
     font-size: 1.1rem;
     line-height: 1.7;
-    color: #2d3436;
+    color: #3c2415;
 }
 
 /* Animations */
@@ -279,10 +267,10 @@ body {
 }
 
 @keyframes color-shift {
-    0%, 100% { color: #a67c8a; }
-    25% { color: #ba838f; }
-    50% { color: #cba6f7; }
-    75% { color: #d4a574; }
+    0%, 100% { color: #a0845c; }
+    25% { color: #8b6f47; }
+    50% { color: #c4a484; }
+    75% { color: #b8a082; }
 }
 
 @keyframes float {
