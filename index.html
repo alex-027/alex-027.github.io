@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 19th Birthday, Thorben! 🎉</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="birthday-header">
+            <h1 class="birthday-title">
+                <span class="floating-emoji">🎂</span>
+                Happy 19th Birthday
+                <span class="floating-emoji">🎈</span>
+            </h1>
+            <h2 class="name-title">Thorben!</h2>
+            <div class="confetti"></div>
+        </div>
+
+        <div class="message-card">
+            <p class="birthday-message">
+                Even though we can't be together today, let's create a memory that brings us closer! 
+                Take a selfie and I'll magically appear next to you in the photo. 
+                <span class="heart">💝</span>
+            </p>
+        </div>
+
+        <div class="camera-section">
+            <div class="preview-container">
+                <video id="video" autoplay muted playsinline></video>
+                <canvas id="canvas" style="display: none;"></canvas>
+                <div class="friend-overlay">
+                    <img id="friendPhoto" src="friend-photo.jpg" alt="Your friend" />
+                    <div class="overlay-label">You'll appear here!</div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="startCamera" class="btn btn-primary">
+                    📸 Start Camera
+                </button>
+                <button id="capturePhoto" class="btn btn-secondary" style="display: none;">
+                    ✨ Capture Our Memory
+                </button>
+                <button id="downloadPhoto" class="btn btn-success" style="display: none;">
+                    💾 Save Photo
+                </button>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <div class="step">
+                <span class="step-number">1</span>
+                <span class="step-text">Click "Start Camera" to begin</span>
+            </div>
+            <div class="step">
+                <span class="step-number">2</span>
+                <span class="step-text">Position yourself on the right side</span>
+            </div>
+            <div class="step">
+                <span class="step-number">3</span>
+                <span class="step-text">Capture the perfect birthday memory!</span>
+            </div>
+        </div>
+
+        <div class="birthday-wishes">
+            <div class="wish-card">
+                <h3>🌟 Birthday Wishes 🌟</h3>
+                <p>May this new year bring you endless joy, amazing adventures, and all the happiness you deserve. You're an incredible friend, and I'm so grateful to have you in my life!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

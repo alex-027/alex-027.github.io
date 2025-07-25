@@ -1,0 +1,329 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 50%, #fd79a8 100%);
+    min-height: 100vh;
+    color: #2d3436;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Birthday Header */
+.birthday-header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.birthday-title {
+    font-size: 2.5rem;
+    color: #e17055;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+    animation: gentle-bounce 3s ease-in-out infinite;
+}
+
+.name-title {
+    font-size: 3rem;
+    color: #d63031;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    animation: color-shift 4s ease-in-out infinite;
+}
+
+.floating-emoji {
+    display: inline-block;
+    animation: float 2s ease-in-out infinite;
+    margin: 0 15px;
+}
+
+.floating-emoji:nth-child(3) {
+    animation-delay: 1s;
+}
+
+/* Confetti Animation */
+.confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    pointer-events: none;
+}
+
+.confetti::before,
+.confetti::after {
+    content: '🎉';
+    position: absolute;
+    font-size: 1.5rem;
+    animation: confetti-fall 3s linear infinite;
+}
+
+.confetti::before {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.confetti::after {
+    right: 20%;
+    animation-delay: 1.5s;
+}
+
+/* Message Card */
+.message-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.birthday-message {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: center;
+    color: #2d3436;
+}
+
+.heart {
+    display: inline-block;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Camera Section */
+.camera-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+.preview-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #f8f9fa;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+#video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.friend-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 182, 193, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 3px dashed #e17055;
+}
+
+#friendPhoto {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 15px;
+    opacity: 0.7;
+    filter: sepia(20%) saturate(1.2);
+}
+
+.overlay-label {
+    position: absolute;
+    bottom: 10px;
+    background: rgba(225, 112, 85, 0.9);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #fd79a8, #fdcb6e);
+    color: white;
+}
+
+.btn-secondary {
+    background: linear-gradient(45deg, #a29bfe, #6c5ce7);
+    color: white;
+}
+
+.btn-success {
+    background: linear-gradient(45deg, #00b894, #00cec9);
+    color: white;
+}
+
+/* Instructions */
+.instructions {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 200px;
+}
+
+.step-number {
+    background: #e17055;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.step-text {
+    font-size: 1rem;
+    color: #2d3436;
+}
+
+/* Birthday Wishes */
+.birthday-wishes {
+    margin-top: 40px;
+}
+
+.wish-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.wish-card h3 {
+    color: #e17055;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.wish-card p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #2d3436;
+}
+
+/* Animations */
+@keyframes gentle-bounce {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes color-shift {
+    0%, 100% { color: #d63031; }
+    25% { color: #e17055; }
+    50% { color: #fd79a8; }
+    75% { color: #fdcb6e; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(10deg); }
+}
+
+@keyframes confetti-fall {
+    0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(200px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .birthday-title {
+        font-size: 2rem;
+    }
+    
+    .name-title {
+        font-size: 2.5rem;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    .instructions {
+        flex-direction: column;
+    }
+    
+    .step {
+        min-width: auto;
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
