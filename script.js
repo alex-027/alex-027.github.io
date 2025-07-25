@@ -8,6 +8,21 @@ class BirthdayPhotoMerger {
         this.downloadBtn = document.getElementById('downloadPhoto');
         this.friendPhoto = document.getElementById('friendPhoto');
         
+        // Array of your photos - add your photo filenames here
+        this.friendPhotoPaths = [
+            'pictures/IMG_5741-removebg-preview.png',
+            'pictures/IMG_5761-removebg-preview.png',
+            'pictures/IMG_5768-removebg-preview.png',
+            'pictures/IMG_5779-removebg-preview.png',
+            'pictures/IMG_5785-removebg-preview.png',
+            'pictures/IMG_5795-removebg-preview.png',
+            'pictures/IMG_5804-removebg-preview.png',
+            'pictures/IMG_5818-removebg-preview.png',
+            'pictures/IMG_5826-removebg-preview.png',
+            'pictures/IMG_5839-removebg-preview.png'
+        ];
+        this.currentPhotoIndex = 0;
+        
         this.stream = null;
         this.capturedImageData = null;
         
@@ -19,46 +34,17 @@ class BirthdayPhotoMerger {
         this.captureBtn.addEventListener('click', () => this.capturePhoto());
         this.downloadBtn.addEventListener('click', () => this.downloadPhoto());
         
-        // Create a placeholder friend photo
-        this.createPlaceholderFriendPhoto();
+        // Set initial photo
+        this.setRandomPhoto();
         
         // Add some birthday sparkles
         this.addSparkleEffect();
     }
     
-    createPlaceholderFriendPhoto() {
-        // Create a canvas for the friend's placeholder
-        const friendCanvas = document.createElement('canvas');
-        friendCanvas.width = 300;
-        friendCanvas.height = 400;
-        const friendCtx = friendCanvas.getContext('2d');
-        
-        // Create a gradient background
-        const gradient = friendCtx.createLinearGradient(0, 0, 300, 400);
-        gradient.addColorStop(0, '#fd79a8');
-        gradient.addColorStop(1, '#fdcb6e');
-        friendCtx.fillStyle = gradient;
-        friendCtx.fillRect(0, 0, 300, 400);
-        
-        // Add a silhouette
-        friendCtx.fillStyle = 'rgba(255, 255, 255, 0.3)';
-        friendCtx.beginPath();
-        friendCtx.arc(150, 120, 60, 0, Math.PI * 2);
-        friendCtx.fill();
-        
-        // Add body
-        friendCtx.fillRect(120, 180, 60, 120);
-        
-        // Add text
-        friendCtx.fillStyle = 'white';
-        friendCtx.font = 'bold 24px Georgia';
-        friendCtx.textAlign = 'center';
-        friendCtx.fillText('Your Friend', 150, 350);
-        friendCtx.font = '16px Georgia';
-        friendCtx.fillText('(That\'s you!)', 150, 375);
-        
-        // Set the placeholder as the friend photo
-        this.friendPhoto.src = friendCanvas.toDataURL();
+    setRandomPhoto() {
+        // Select a random photo from the array
+        this.currentPhotoIndex = Math.floor(Math.random() * this.friendPhotoPaths.length);
+        this.friendPhoto.src = this.friendPhotoPaths[this.currentPhotoIndex];
     }
     
     async startCamera() {
@@ -125,13 +111,19 @@ class BirthdayPhotoMerger {
             // Store the image data
             this.capturedImageData = this.canvas.toDataURL('image/jpeg', 0.9);
             
+            // Automatically download the photo
+            this.autoDownloadPhoto();
+            
+            // Set next random photo for next capture
+            this.setRandomPhoto();
+            
             this.captureBtn.style.display = 'none';
             this.downloadBtn.style.display = 'inline-block';
             
             this.showNotification('🎉 Perfect! Your birthday memory is ready!', 'success');
         };
         
-        friendImg.src = this.friendPhoto.src;
+        friendImg.src = this.friendPhotoPaths[this.currentPhotoIndex];
     }
     
     addBirthdayDecorations() {
@@ -140,7 +132,7 @@ class BirthdayPhotoMerger {
         // Add birthday text overlay
         ctx.save();
         ctx.font = 'bold 48px Georgia';
-        ctx.fillStyle = 'rgba(225, 112, 85, 0.9)';
+        ctx.fillStyle = 'rgba(186, 131, 143, 0.9)';
         ctx.strokeStyle = 'white';
         ctx.lineWidth = 3;
         ctx.textAlign = 'center';
@@ -161,7 +153,7 @@ class BirthdayPhotoMerger {
         
         // Add age number
         ctx.font = 'bold 120px Georgia';
-        ctx.fillStyle = 'rgba(253, 121, 168, 0.7)';
+        ctx.fillStyle = 'rgba(203, 166, 247, 0.7)';
         ctx.strokeStyle = 'white';
         ctx.lineWidth = 4;
         ctx.fillText('19', x, this.canvas.height - 150);
@@ -170,23 +162,31 @@ class BirthdayPhotoMerger {
         ctx.restore();
     }
     
+    autoDownloadPhoto() {
+        if (!this.capturedImageData) return;
+        
+        // Create download link and trigger automatically
+        const link = document.createElement('a');
+        link.download = `thorben-19th-birthday-${new Date().getTime()}.jpg`;
+        link.href = this.capturedImageData;
+        
+        // Trigger download automatically
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        this.showNotification('📱 Photo automatically saved to your device!', 'success');
+    }
+    
     downloadPhoto() {
         if (!this.capturedImageData) {
             this.showNotification('❌ No photo to download', 'error');
             return;
         }
         
-        // Create download link
-        const link = document.createElement('a');
-        link.download = `thorben-19th-birthday-${new Date().getTime()}.jpg`;
-        link.href = this.capturedImageData;
-        
-        // Trigger download
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        
-        this.showNotification('💾 Photo saved! Check your downloads folder', 'success');
+        // Manual download (backup option)
+        this.autoDownloadPhoto();
+        this.showNotification('💾 Photo downloaded again!', 'success');
         
         // Add celebration effect
         this.triggerCelebration();
