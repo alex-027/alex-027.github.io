@@ -87,11 +87,25 @@ body {
     padding: var(--space-6);
 }
 
+/* Mobile-first responsive container */
+@media (max-width: 768px) {
+    .container {
+        padding: var(--space-4);
+        max-width: 100%;
+    }
+}
+
 /* Hero Section */
 .hero-section {
     text-align: center;
     padding: var(--space-20) 0 var(--space-16);
     position: relative;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: var(--space-12) 0 var(--space-8);
+    }
 }
 
 .hero-title {
@@ -122,6 +136,13 @@ body {
     line-height: 1.7;
 }
 
+@media (max-width: 768px) {
+    .hero-description {
+        font-size: 1rem;
+        padding: 0 var(--space-4);
+    }
+}
+
 /* Modern Card Design */
 .card {
     background: rgba(255, 255, 255, 0.8);
@@ -138,6 +159,12 @@ body {
     box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
 }
 
+@media (max-width: 768px) {
+    .card:hover {
+        transform: none;
+    }
+}
+
 /* Camera Section */
 .camera-section {
     margin-bottom: var(--space-16);
@@ -147,16 +174,53 @@ body {
     padding: var(--space-8);
 }
 
+@media (max-width: 768px) {
+    .camera-card {
+        padding: var(--space-4);
+    }
+}
+
+/* Camera Container - Mobile Layout */
+.camera-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+}
+
+@media (orientation: landscape) and (max-width: 1024px) {
+    .camera-container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
 .preview-container {
     position: relative;
     width: 100%;
     max-width: 800px;
-    margin: 0 auto var(--space-8);
+    margin: 0 auto;
     border-radius: var(--radius-xl);
     overflow: hidden;
     background: var(--neutral-100);
     box-shadow: var(--shadow-lg);
     aspect-ratio: 16/9;
+}
+
+@media (max-width: 768px) {
+    .preview-container {
+        max-width: 100%;
+        aspect-ratio: 4/3;
+        border-radius: var(--radius-lg);
+    }
+}
+
+@media (orientation: landscape) and (max-width: 1024px) {
+    .preview-container {
+        max-width: 60%;
+        aspect-ratio: 16/9;
+    }
 }
 
 #video {
@@ -188,36 +252,146 @@ body {
     transform: scaleX(-1);
 }
 
-/* Modern Button System */
-.button-group {
+/* iPhone-style Camera Controls */
+.camera-controls {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: var(--space-4);
-    justify-content: center;
-    flex-wrap: wrap;
 }
 
+@media (orientation: landscape) and (max-width: 1024px) {
+    .camera-controls {
+        flex-direction: column;
+        justify-content: center;
+        min-width: 120px;
+    }
+}
+
+/* iPhone Camera Button */
+.camera-button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid white;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.camera-button:hover {
+    transform: scale(1.05);
+}
+
+.camera-button:active {
+    transform: scale(0.95);
+}
+
+.camera-button.capture {
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+    border-color: var(--primary-200);
+}
+
+.camera-button.capture::before {
+    content: '';
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.camera-button.capture:active::before {
+    transform: scale(0.8);
+}
+
+.camera-button-icon {
+    font-size: 1.5rem;
+    color: var(--primary-700);
+}
+
+.camera-button.capture .camera-button-icon {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .camera-button {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .camera-button.capture::before {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Secondary Controls */
+.secondary-controls {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (orientation: landscape) and (max-width: 1024px) {
+    .secondary-controls {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+}
+
+/* Modern Button System */
 .btn {
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    padding: var(--space-4) var(--space-6);
+    padding: var(--space-3) var(--space-5);
     border: none;
     border-radius: var(--radius-lg);
     font-family: var(--font-sans);
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     text-decoration: none;
     position: relative;
     overflow: hidden;
-    min-width: 160px;
+    min-width: 120px;
     justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .btn {
+        padding: var(--space-2) var(--space-4);
+        font-size: 0.85rem;
+        min-width: 100px;
+    }
+}
+
+@media (orientation: landscape) and (max-width: 1024px) {
+    .btn {
+        padding: var(--space-2) var(--space-3);
+        font-size: 0.8rem;
+        min-width: 80px;
+    }
 }
 
 .btn:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 768px) {
+    .btn:hover {
+        transform: none;
+    }
 }
 
 .btn:active {
@@ -257,6 +431,12 @@ body {
     margin-bottom: var(--space-16);
 }
 
+@media (max-width: 768px) {
+    .instructions-section {
+        margin-bottom: var(--space-12);
+    }
+}
+
 .section-title {
     font-size: 1.5rem;
     font-weight: 700;
@@ -265,10 +445,24 @@ body {
     margin-bottom: var(--space-8);
 }
 
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.25rem;
+        margin-bottom: var(--space-6);
+    }
+}
+
 .instructions-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--space-6);
+}
+
+@media (max-width: 768px) {
+    .instructions-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
 }
 
 .instruction-card {
@@ -276,6 +470,13 @@ body {
     display: flex;
     align-items: flex-start;
     gap: var(--space-4);
+}
+
+@media (max-width: 768px) {
+    .instruction-card {
+        padding: var(--space-4);
+        gap: var(--space-3);
+    }
 }
 
 .step-number {
@@ -293,6 +494,14 @@ body {
     box-shadow: var(--shadow-md);
 }
 
+@media (max-width: 768px) {
+    .step-number {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
+
 .step-content h3 {
     font-size: 1.125rem;
     font-weight: 600;
@@ -300,9 +509,21 @@ body {
     margin-bottom: var(--space-2);
 }
 
+@media (max-width: 768px) {
+    .step-content h3 {
+        font-size: 1rem;
+    }
+}
+
 .step-content p {
     color: black;
     font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .step-content p {
+        font-size: 0.9rem;
+    }
 }
 
 /* Birthday Wishes Section */
@@ -310,10 +531,22 @@ body {
     margin-top: var(--space-20);
 }
 
+@media (max-width: 768px) {
+    .wishes-section {
+        margin-top: var(--space-12);
+    }
+}
+
 .wishes-card {
     padding: var(--space-12);
     text-align: center;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+}
+
+@media (max-width: 768px) {
+    .wishes-card {
+        padding: var(--space-6);
+    }
 }
 
 .wishes-title {
@@ -326,12 +559,26 @@ body {
     margin-bottom: var(--space-6);
 }
 
+@media (max-width: 768px) {
+    .wishes-title {
+        font-size: 1.5rem;
+        margin-bottom: var(--space-4);
+    }
+}
+
 .wishes-text {
     font-size: 1.125rem;
     line-height: 1.8;
     color: black;
     max-width: 600px;
     margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .wishes-text {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
 }
 
 /* Modern Animations */
@@ -355,6 +602,12 @@ body {
     animation-delay: 1.5s;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .floating-emoji {
+        animation: none;
+    }
+}
+
 /* Notification System */
 .notification {
     position: fixed;
@@ -369,6 +622,17 @@ body {
     box-shadow: var(--shadow-xl);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .notification {
+        top: var(--space-4);
+        right: var(--space-4);
+        left: var(--space-4);
+        max-width: none;
+        font-size: 0.9rem;
+        padding: var(--space-3) var(--space-4);
+    }
 }
 
 .notification-success {
@@ -387,54 +651,9 @@ body {
     background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        padding: var(--space-4);
-    }
-    
-    .hero-section {
-        padding: var(--space-12) 0 var(--space-8);
-    }
-    
-    .camera-card {
-        padding: var(--space-6);
-    }
-    
-    .button-group {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .btn {
-        width: 100%;
-        max-width: 280px;
-    }
-    
-    .instructions-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .notification {
-        top: var(--space-4);
-        right: var(--space-4);
-        left: var(--space-4);
-        max-width: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.5rem;
-    }
-    
-    .preview-container {
-        aspect-ratio: 4/3;
-    }
+/* Hidden elements */
+.hidden {
+    display: none !important;
 }
 
 /* Dark mode support */

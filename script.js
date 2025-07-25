@@ -39,6 +39,23 @@ class BirthdayPhotoMerger {
         
         // Add some birthday sparkles
         this.addSparkleEffect();
+        
+        // Handle orientation changes for mobile
+        this.handleOrientationChange();
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => this.handleOrientationChange(), 100);
+        });
+        window.addEventListener('resize', () => this.handleOrientationChange());
+    }
+    
+    handleOrientationChange() {
+        // Force layout recalculation on mobile devices
+        if (window.innerWidth <= 768) {
+            const container = document.querySelector('.camera-container');
+            if (container) {
+                container.style.height = 'auto';
+            }
+        }
     }
     
     setRandomPhoto() {
@@ -61,9 +78,10 @@ class BirthdayPhotoMerger {
             this.video.srcObject = this.stream;
             this.video.play();
             
-            this.startCameraBtn.style.display = 'none';
-            this.captureBtn.style.display = 'inline-block';
-            this.stopCameraBtn.style.display = 'inline-block';
+            // Update button visibility with modern classes
+            this.startCameraBtn.classList.add('hidden');
+            this.captureBtn.classList.remove('hidden');
+            this.stopCameraBtn.classList.remove('hidden');
             
             // Add camera ready animation
             this.showNotification('📸 Camera ready! Position yourself on the right side!', 'success');
@@ -87,10 +105,10 @@ class BirthdayPhotoMerger {
         this.video.srcObject = null;
         
         // Reset button visibility
-        this.startCameraBtn.style.display = 'inline-block';
-        this.captureBtn.style.display = 'none';
-        this.stopCameraBtn.style.display = 'none';
-        this.downloadBtn.style.display = 'none';
+        this.startCameraBtn.classList.remove('hidden');
+        this.captureBtn.classList.add('hidden');
+        this.stopCameraBtn.classList.add('hidden');
+        this.downloadBtn.classList.add('hidden');
         
         this.showNotification('📷 Camera stopped', 'info');
     }
@@ -146,8 +164,8 @@ class BirthdayPhotoMerger {
             this.setRandomPhoto();
             
             // Keep capture button visible for next photo
-            this.captureBtn.style.display = 'inline-block';
-            this.downloadBtn.style.display = 'none';
+            this.captureBtn.classList.remove('hidden');
+            this.downloadBtn.classList.add('hidden');
             
             this.showNotification('🎉 Perfect! Your birthday memory is ready!', 'success');
         };

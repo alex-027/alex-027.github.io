@@ -27,27 +27,33 @@
         <!-- Camera Section -->
         <section class="camera-section">
             <div class="card camera-card">
-                <div class="preview-container">
-                    <video id="video" autoplay muted playsinline></video>
-                    <canvas id="canvas" style="display: none;"></canvas>
-                    <div class="friend-overlay">
-                        <img id="friendPhoto" alt="Your friend" />
+                <div class="camera-container">
+                    <div class="preview-container">
+                        <video id="video" autoplay muted playsinline></video>
+                        <canvas id="canvas" style="display: none;"></canvas>
+                        <div class="friend-overlay">
+                            <img id="friendPhoto" alt="Your friend" />
+                        </div>
                     </div>
-                </div>
 
-                <div class="button-group">
-                    <button id="startCamera" class="btn btn-primary">
-                        📸 Kamera An
-                    </button>
-                    <button id="capturePhoto" class="btn btn-secondary" style="display: none;">
-                        ✨ Foto machen
-                    </button>
-                    <button id="stopCamera" class="btn btn-warning" style="display: none;">
-                        🛑 Kamera Aus
-                    </button>
-                    <button id="downloadPhoto" class="btn btn-success" style="display: none;">
-                        💾 Save Photo
-                    </button>
+                    <div class="camera-controls">
+                        <!-- Main Camera Button -->
+                        <button id="startCamera" class="camera-button">
+                            <span class="camera-button-icon">📸</span>
+                        </button>
+                        <button id="capturePhoto" class="camera-button capture hidden">
+                        </button>
+                        
+                        <!-- Secondary Controls -->
+                        <div class="secondary-controls">
+                            <button id="stopCamera" class="btn btn-warning hidden">
+                                🛑 Stop
+                            </button>
+                            <button id="downloadPhoto" class="btn btn-success hidden">
+                                💾 Save
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
