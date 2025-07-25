@@ -117,8 +117,9 @@ class BirthdayPhotoMerger {
             // Set next random photo for next capture
             this.setRandomPhoto();
             
-            this.captureBtn.style.display = 'none';
-            this.downloadBtn.style.display = 'inline-block';
+            // Keep capture button visible for next photo
+            this.captureBtn.style.display = 'inline-block';
+            this.downloadBtn.style.display = 'none';
             
             this.showNotification('🎉 Perfect! Your birthday memory is ready!', 'success');
         };
