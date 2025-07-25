@@ -144,8 +144,8 @@ body {
 
 #friendPhoto {
     width: 80%;
-    height: 80%;
-    object-fit: cover;
+    height: 100%;
+    object-fit: contain;
     border-radius: 15px;
     opacity: 0.7;
     filter: sepia(20%) saturate(1.2);
